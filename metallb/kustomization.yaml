@@ -1,0 +1,22 @@
+namespace: metallb-system
+
+resources:
+  - github.com/metallb/metallb//manifests?ref=v0.9.6
+  - clusterrole.yaml
+  - rolebinding.yaml
+  - configmap.yaml
+  - secret.yaml
+
+generatorOptions:
+ disableNameSuffixHash: true
+
+patches:
+  - target:
+      kind: Deployment
+      name: controller
+      namespace: metallb-system
+    patch: |-
+      - op: remove
+        path: /spec/template/spec/securityContext/runAsUser
+
+
