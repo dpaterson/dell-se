@@ -9,6 +9,6 @@ data:
     - name: default
       protocol: layer2
       addresses:
-      # change below to IP range that works for your environment
+      # CHANGEME below to IP range that works for your environment
       - 100.0.0.33-100.0.0.66
 
